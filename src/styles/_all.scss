@@ -1,0 +1,255 @@
+header {
+  background: rgba(255, 255, 255, 0.7);
+  text-align: center;
+  .head {
+    margin: 30px 0;
+  }
+  h1 {
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  p {
+    font-size: 1.3em;
+  }
+}
+nav {
+  position: relative;
+  z-index: 10;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+  border-top: 1px solid rgba(0, 0, 0, 0.25);
+  box-shadow: 0 2px 6px 0 #a5a5a5;
+  background: $gray;
+  ul {
+    max-width: 1000px;
+    margin: 25px auto;
+    color: #000;
+
+    li a{
+      position: relative;
+      cursor: pointer;
+      padding: 5px 0;
+      text-decoration: none;
+      color: #000;
+      &:after {
+        position: absolute;
+        display: block;
+        content: "";
+        width: 0;
+        right: 0;
+        height: 1px;
+        bottom: 0;
+        background: #000;
+        transition: .2s;
+      }
+      &:hover::after {
+        left: 0;
+        width: 100%;
+      }
+    }
+
+    li.active a{
+      font-weight: 700;
+      &:after {
+        width: 100%;
+      }
+    }
+  }
+}
+
+.content section {
+  max-width: 1920px;
+  margin: 0 auto;
+}
+
+.main-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  .photo {
+    width: 33.33333333%;
+    padding: 7.5px;
+    img {
+      box-shadow: 0 0 5px #303030;
+      cursor: pointer;
+      transition: .3s;
+      &:hover {
+        box-shadow: 0 0 10px 2px black;
+      }
+    }
+  }
+}
+
+
+
+.about-me, .contact-me {
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 25px;
+
+  h2 {
+    font-size: 1.8em;
+    font-style: italic;
+    margin-bottom: 20px;
+    font-weight: 700;
+    color: #000;
+  }
+  p {
+    font-size: 1.2em;
+    letter-spacing: 1.1px;
+    color: rgba(0, 0, 0, 0.85);
+  }
+
+  a {
+    position: relative;
+    color: #000;
+    font-weight: 700;
+    text-decoration: none;
+    line-height: 40px;
+
+    &:after {
+      display: block;
+      content: "";
+      position: absolute;
+      bottom: -3px;
+      right: 0;
+      width: 0;
+      height: 1px;
+      background: #000;
+      transition: .2s;
+    }
+    &:hover::after {
+      left: 0;
+      width: 100%;
+    }
+  }
+}
+
+
+
+.about-content {
+  text-align: center;
+  padding: 15px;
+
+  .head-img {
+    max-width: 500px;
+    margin: 0 auto 40px;
+  }
+
+  .about-me {
+    margin-bottom: 50px;
+  }
+}
+
+.services-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  text-align: center;
+  padding: 15px 7.5px;
+
+  .service-item {
+    width: 31%;
+    padding: 30px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    background: #fff;
+    transition: .3s;
+    cursor: pointer;
+    &:hover {
+      background: rgba(0, 0, 0, 0.02);
+      box-shadow: 0 0 10px rgba(193, 193, 193, 0.91);
+    }
+    img {
+      -webkit-border-radius: 5px;
+      -moz-border-radius: 5px;
+      border-radius: 5px;
+      box-shadow: 0 0 5px black;
+    }
+
+    h2 {
+      margin: 15px 0;
+      font-style: italic;
+    }
+    p {
+      font-weight: 700;
+    }
+  }
+}
+
+
+footer {
+  padding: 50px 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.25);
+  background: $gray;
+  box-shadow: 0 0 8px #a5a5a5;
+  img {
+    width: 40px;
+    height: 40px;
+  }
+  ul {
+    justify-content: center;
+    li {
+      margin: 0 20px;
+      opacity: .5;
+      transition: .2s;
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+
+
+
+.modal {
+  position: fixed;
+  opacity: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.9);
+  z-index: -1;
+  transition: .4s;
+  &.active {
+    z-index: 10000;
+    opacity: 1;
+  }
+  .content {
+    position: absolute;
+    width: 80%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -80%);
+    opacity: 0;
+    transition: .45s ease-in-out;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    &.active {
+      transform: translate(-50%, -50%);
+      opacity: 1;
+    }
+    img {
+      box-shadow: 5px 5px 20px black;
+      height: auto;
+      width: auto;
+      max-height: 90vh;
+      max-width: 100%;
+      margin: 0 auto;
+    }
+  }
+  
+  .contact-me {
+    padding: 20px;
+    background: #fff;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #bcbcbc, 0 0 3px black inset;
+  }
+}
