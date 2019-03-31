@@ -1,6 +1,12 @@
 @media all and (max-width: 1000px) {
-  .photo {
+  .col {
     width: 50% !important;
+  }
+  .col-3 {
+    display: none!important;
+  }
+  .col-3-images {
+    display: block !important;
   }
 
   .services-content {
@@ -48,11 +54,17 @@
 }
 
 @media all and (max-width: 450px) {
-  .photo {
-    width: 100% !important;
-  }
   .about-content {
     font-size: .9em;
+  }
+  section {
+    padding: 20px 5px!important;
+  }
+  .col img {
+    margin: 10px 0 !important;
+  }
+  .main-content .col {
+    padding: 5px;
   }
   footer {
     padding: 20px 0;

@@ -2,16 +2,16 @@
     let
         modal = $('.modal'),
         modalContent = modal.find('.content'),
-        pfImg = $('.photo img'),
+        pfImg = $('.col img'),
         serImg = $('.service-item img');
 
-    makePfImagesHeight.call(pfImg);
+    // makePfImagesHeight.call(pfImg);
     makePfImagesHeight.call(serImg);
 
 
     if($('.main').hasClass('active')) {
         $(window).on('resize', function() {
-            makePfImagesHeight.call(pfImg)
+            // makePfImagesHeight.call(pfImg)
         });
     } else if($('.services').hasClass('active')) {
         $(window).on('resize', function() {
@@ -40,9 +40,9 @@
 
 
     function openModal(e) {
-        if($(window).width() < 450 && e.target.closest('.photo')) return;
+        // if($(window).width() < 450 && e.target.closest('.col')) return;
         modal.addClass('active');
-        if(e.target.closest('.photo')) {
+        if(e.target.closest('.col img')) {
             modalContent.find('img').attr('src', $(e.target).attr('src'));
         }
         setTimeout(function() {

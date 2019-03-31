@@ -5,6 +5,13 @@
   font-weight: normal;
   font-style: normal; }
 
+@font-face {
+  font-family: 'Vollkorn SC Semibold';
+  src: url("../fonts/VollkornSC-SemiBold.eot");
+  src: url("../fonts/VollkornSC-SemiBold.eot?#iefix") format("embedded-opentype"), url("../fonts/VollkornSC-SemiBold.woff") format("woff"), url("../fonts/VollkornSC-SemiBold.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+
 * {
   margin: 0;
   padding: 0;
@@ -60,9 +67,12 @@ header {
     margin: 30px 0; }
   header h1 {
     text-transform: uppercase;
-    margin-bottom: 20px; }
+    margin-bottom: 15px;
+    letter-spacing: 3px;
+    font-family: 'Vollkorn SC Semibold', serif; }
   header p {
-    font-size: 1.3em; }
+    text-transform: uppercase;
+    letter-spacing: 6px; }
 
 nav {
   position: relative;
@@ -110,27 +120,29 @@ nav {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap; }
-  .main-content .photo {
+  .main-content .col {
     width: 33.33333333%;
     padding: 7.5px; }
-    .main-content .photo img {
-      -webkit-box-shadow: 0 0 5px #303030;
-              box-shadow: 0 0 5px #303030;
+    .main-content .col img {
       cursor: pointer;
-      -webkit-transition: .3s;
-      -o-transition: .3s;
-      transition: .3s; }
-      .main-content .photo img:hover {
-        -webkit-box-shadow: 0 0 10px 2px black;
-                box-shadow: 0 0 10px 2px black; }
+      -webkit-transition: .2s;
+      -o-transition: .2s;
+      transition: .2s;
+      margin: 15px 0; }
+      .main-content .col img:hover {
+        -webkit-box-shadow: 0 0 3px #9f9f9f;
+                box-shadow: 0 0 3px #9f9f9f; }
+
+.col-3-images {
+  display: none; }
 
 .about-me, .contact-me {
   max-width: 600px;
@@ -173,7 +185,8 @@ nav {
   padding: 15px; }
   .about-content .head-img {
     max-width: 500px;
-    margin: 0 auto 40px; }
+    margin: 0 auto 40px;
+    padding: 0 32.5px; }
   .about-content .about-me {
     margin-bottom: 50px; }
 
@@ -202,9 +215,7 @@ nav {
       -webkit-box-shadow: 0 0 10px rgba(193, 193, 193, 0.91);
               box-shadow: 0 0 10px rgba(193, 193, 193, 0.91); }
     .services-content .service-item img {
-      border-radius: 5px;
-      -webkit-box-shadow: 0 0 5px black;
-              box-shadow: 0 0 5px black; }
+      border-radius: 5px; }
     .services-content .service-item h2 {
       margin: 15px 0;
       font-style: italic; }
@@ -269,8 +280,6 @@ footer {
               transform: translate(-50%, -50%);
       opacity: 1; }
     .modal .content img {
-      -webkit-box-shadow: 5px 5px 20px black;
-              box-shadow: 5px 5px 20px black;
       height: auto;
       width: auto;
       max-height: 90vh;
@@ -284,8 +293,12 @@ footer {
             box-shadow: 0 0 5px #bcbcbc, 0 0 3px black inset; }
 
 @media all and (max-width: 1000px) {
-  .photo {
+  .col {
     width: 50% !important; }
+  .col-3 {
+    display: none !important; }
+  .col-3-images {
+    display: block !important; }
   .services-content {
     -ms-flex-wrap: wrap;
         flex-wrap: wrap; }
@@ -318,10 +331,14 @@ footer {
     font-size: .9em; } }
 
 @media all and (max-width: 450px) {
-  .photo {
-    width: 100% !important; }
   .about-content {
     font-size: .9em; }
+  section {
+    padding: 20px 5px !important; }
+  .col img {
+    margin: 10px 0 !important; }
+  .main-content .col {
+    padding: 5px; }
   footer {
     padding: 20px 0; }
   footer img {
