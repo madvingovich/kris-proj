@@ -1,4 +1,8 @@
 (function ($) {
+
+})(jQuery);
+
+$(document).ready(function() {
     let
         modal = $('.modal'),
         modalContent = modal.find('.content'),
@@ -28,7 +32,7 @@
             modalContent.removeClass('active');
         }
     });
-    
+
     $(modal).on('mousewheel', function(e) {
         e.preventDefault();
     });
@@ -48,4 +52,32 @@
     function makePfImagesHeight() {
         this.height(this.width() * .7);
     }
-})(jQuery);
+
+    (function() {
+        if (!Element.prototype.matches) {
+
+            Element.prototype.matches = Element.prototype.matchesSelector ||
+                Element.prototype.webkitMatchesSelector ||
+                Element.prototype.mozMatchesSelector ||
+                Element.prototype.msMatchesSelector;
+
+        }
+
+    })();
+
+    (function() {
+        if (!Element.prototype.closest) {
+
+            Element.prototype.closest = function(css) {
+                var node = this;
+
+                while (node) {
+                    if (node.matches(css)) return node;
+                    else node = node.parentElement;
+                }
+                return null;
+            };
+        }
+
+    })();
+});
