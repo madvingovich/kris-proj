@@ -8,6 +8,7 @@ const
     urls = require('gulp-resolve-url'),
     bs = require('browser-sync'),
     imgmin = require('gulp-imagemin'),
+    uglify = require('gulp-uglify-es').default,
     cssmin = require('gulp-cssmin'),
     autoprefixer = require('gulp-autoprefixer');
 
@@ -46,14 +47,15 @@ gulp.task('fonts', () => {
 gulp.task('js', () => {
     return gulp.src(jsFiles)
         .pipe(gulpIf(!production, sourcemaps.init()))
-        .pipe(concat('main.js'))
         .pipe(gulpIf(!production, sourcemaps.write()))
+        .pipe(concat('main-min.js'))
+        .pipe(gulpIf(production, uglify()))
         .pipe(gulp.dest('dist/js'))
 });
 
 gulp.task('images', () => {
     return gulp.src('src/img/**', {base: 'src'})
-        .pipe(imgmin())
+        .pipe(gulpIf(production, imgmin()))
         .pipe(gulp.dest('dist/'))
 });
 

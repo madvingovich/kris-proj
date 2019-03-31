@@ -5,15 +5,10 @@
         pfImg = $('.col img'),
         serImg = $('.service-item img');
 
-    // makePfImagesHeight.call(pfImg);
     makePfImagesHeight.call(serImg);
 
 
-    if($('.main').hasClass('active')) {
-        $(window).on('resize', function() {
-            // makePfImagesHeight.call(pfImg)
-        });
-    } else if($('.services').hasClass('active')) {
+    if($('.services').hasClass('active')) {
         $(window).on('resize', function() {
             makePfImagesHeight.call(serImg)
         });
@@ -22,6 +17,7 @@
     pfImg.on('click', function(e) {
         openModal(e);
     });
+
     $('.service-item').on('click',function(e) {
         openModal(e);
     });
@@ -40,7 +36,6 @@
 
 
     function openModal(e) {
-        // if($(window).width() < 450 && e.target.closest('.col')) return;
         modal.addClass('active');
         if(e.target.closest('.col img')) {
             modalContent.find('img').attr('src', $(e.target).attr('src'));
@@ -51,6 +46,6 @@
     }
 
     function makePfImagesHeight() {
-        this.height(this.width() * .573);
+        this.height(this.width() * .7);
     }
 })(jQuery);
