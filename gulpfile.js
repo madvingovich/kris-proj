@@ -7,6 +7,8 @@ const
     gulpIf = require('gulp-if'),
     urls = require('gulp-resolve-url'),
     bs = require('browser-sync'),
+    imgmin = require('gulp-imagemin'),
+    cssmin = require('gulp-cssmin'),
     autoprefixer = require('gulp-autoprefixer');
 
 const production = process.env.NODE_ENV === 'production';
@@ -32,6 +34,7 @@ gulp.task('styles', () => {
         // .pipe(urls())
         .pipe(concat('main.css'))
         .pipe(gulpIf(!production, sourcemaps.write()))
+        .pipe(gulpIf(production, cssmin()))
         .pipe(gulp.dest('dist/css'));
 });
 
@@ -50,6 +53,7 @@ gulp.task('js', () => {
 
 gulp.task('images', () => {
     return gulp.src('src/img/**', {base: 'src'})
+        .pipe(imgmin())
         .pipe(gulp.dest('dist/'))
 });
 
