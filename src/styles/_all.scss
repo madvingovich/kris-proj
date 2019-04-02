@@ -111,6 +111,7 @@ nav {
 
   a {
     position: relative;
+    padding: 5px 0;
     color: #000;
     font-weight: 700;
     text-decoration: none;
@@ -120,12 +121,12 @@ nav {
       display: block;
       content: "";
       position: absolute;
-      bottom: -3px;
+      bottom: 0;
       right: 0;
       width: 0;
       height: 1px;
       background: #000;
-      transition: .2s;
+      transition: .3s;
     }
     &:hover::after {
       left: 0;
@@ -252,7 +253,7 @@ footer {
       margin: 0 auto;
     }
   }
-  
+
   .contact-me {
     padding: 20px;
     background: #fff;
@@ -260,5 +261,108 @@ footer {
     -moz-border-radius: 5px;
     border-radius: 5px;
     box-shadow: 0 0 5px #bcbcbc, 0 0 3px black inset;
+  }
+}
+
+
+form {
+  position: relative;
+  max-width: 500px;
+  //border: 1px solid #000;
+  display: block;
+  margin: 0 auto;
+  padding: 50px 30px 30px;
+
+  h2 {
+    position: absolute;
+    width: 100%;
+    left: 50%;
+    top: 12px;
+    transform: translateX(-50%);
+    font-size: 1em;
+    &.error {
+      color: red;
+    }
+    &.good {
+      color: green;
+    }
+  }
+
+  label {
+    display: block;
+    position: relative;
+    width: 100%;
+    &.required:after {
+      position: absolute;
+      display: block;
+      content: "*";
+      font-size: 1.5em;
+      color: red;
+      left: -14px;
+      top: 15px;
+    }
+  }
+
+  span {
+    position: absolute;
+    display: block;
+    background: #ffffff;
+    border-radius: 3px;
+    padding: 2px 6px;
+    left: 5px;
+    top: 14px;
+    color: #575d59;
+    transition: .3s;
+    &:hover {
+      cursor: text;
+    }
+    &.active {
+      font-weight: 700;
+      left: 14px;
+      top: -6px;
+    }
+  }
+
+  input, textarea {
+    width: 100%;
+    border-radius: 4px;
+    border: none;
+    padding: 10px 15px;
+    margin: 10px 0;
+    box-shadow: 0 0 2px #000, 0 0 3px #979797 inset;
+    outline: none;
+    transition: .2s;
+    &:focus {
+      box-shadow: 0 0 5px #000, 0 0 3px #979797 inset;
+    }
+  }
+  textarea {
+    resize: none;
+    height: 60px;
+  }
+  
+  p.descr {
+    font-size: .8em;
+    font-weight: 700;
+  }
+
+  button {
+    display: block;
+    position: relative;
+    border-radius: 5px;
+    border: 1px solid black;
+    background: #000;
+    color: #fff;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, .6), 0 0 3px rgba(0, 0, 0, .6) inset;
+    font-size: 1.1em;
+    letter-spacing: 1.3px;
+    padding: 5px 15px;
+    margin: 20px auto 0;
+    cursor: pointer;
+    transition: .2s;
+    &:hover {
+      background: transparent;
+      color: #000;
+    }
   }
 }

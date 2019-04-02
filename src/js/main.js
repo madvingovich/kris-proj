@@ -7,6 +7,9 @@ $(document).ready(function() {
         modal = $('.modal'),
         modalContent = modal.find('.content'),
         pfImg = $('.col img'),
+        formFields = $('.field'),
+        err = $('.error'),
+        good = $('.good'),
         serImg = $('.service-item img');
 
     makePfImagesHeight.call(serImg);
@@ -27,7 +30,7 @@ $(document).ready(function() {
     });
 
     modal.on('click', function(e) {
-        if(!e.target.closest('img') && !e.target.closest('.contact-me')) {
+        if(!e.target.closest('img') && !e.target.closest('.contact-me') || !e.target.closest('form')) {
             modal.removeClass('active');
             modalContent.removeClass('active');
         }
@@ -37,6 +40,35 @@ $(document).ready(function() {
         e.preventDefault();
     });
 
+    $('form').on('submit', function(e) {
+        e.preventDefault();
+
+        $.get({
+            url: $(this).attr('action'),
+            data: $(this).serialize(),
+            cache: false,
+            success: function(res) {
+                formFields.val('');
+                formFields.blur();
+                err.html('');
+                good.html(res);
+            },
+            error: function(e) {
+                good.html('');
+                err.html(e.responseText);
+            }
+        })
+    });
+
+    formFields.on('focus', function() {
+        $(this).siblings('span').addClass('active');
+    });
+
+    formFields.on('blur', function() {
+        if($(this).val().length < 1) {
+            $(this).siblings('span').removeClass('active');
+        }
+    });
 
 
     function openModal(e) {

@@ -53,6 +53,11 @@ gulp.task('js', () => {
         .pipe(gulp.dest('dist/js'))
 });
 
+gulp.task('php', () => {
+    return gulp.src('src/**.php')
+        .pipe(gulp.dest('dist/'))
+});
+
 gulp.task('images', () => {
     return gulp.src('src/img/**', {base: 'src'})
         .pipe(gulpIf(production, imgmin()))
@@ -72,12 +77,13 @@ gulp.task('watch', () => {
     gulp.watch('src/fonts/**/**.*', gulp.series('fonts'));
     gulp.watch(jsFiles, gulp.series('js'));
     gulp.watch('src/img/**.*', gulp.series('images'));
+    gulp.watch('src/**.php', gulp.series('php'));
 });
 
 gulp.task('clean', () => {
     return del('dist');
 });
 
-gulp.task('build', gulp.series('clean', gulp.parallel('html', 'styles', 'fonts', 'js', 'images')));
+gulp.task('build', gulp.series('clean', gulp.parallel('html', 'styles', 'fonts', 'js', 'php', 'images')));
 
 gulp.task('develop', gulp.series('build', gulp.parallel('watch', 'serve')));

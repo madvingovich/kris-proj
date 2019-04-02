@@ -9,7 +9,7 @@
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {
+  "devDependencies": {
     "bootstrap": "^4.2.1",
     "browser-sync": "^2.26.3",
     "del": "^3.0.0",

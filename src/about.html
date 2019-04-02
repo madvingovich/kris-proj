@@ -53,6 +53,29 @@
             <a href="tel:+380666832188">+38 (066)-683-21-88</a>
         </p>
     </div>
+
+    <form action="./telegramMessage.php" novalidate>
+        <h2 class="error"></h2>
+        <h2 class="good"></h2>
+        <label class="required">
+            <span class="placeholder">Ваше имя</span>
+            <input class="field" type="text" name="name">
+        </label>
+        <label class="required">
+            <span class="placeholder">Ваш номер</span>
+            <input class="field" type="tel" name="tel">
+        </label>
+        <label>
+            <span class="placeholder">Ваш e-mail</span>
+            <input class="field" type="email" name="mail">
+        </label>
+        <label>
+            <span class="placeholder">Ваше сообщение</span>
+            <textarea class="field" name="text"></textarea>
+        </label>
+        <p class="descr"><b>*</b> - Поля обязательные для заполнения.</p>
+        <button class="submit">Отправить</button>
+    </form>
 </section>
 
 
