@@ -28,9 +28,9 @@ $(document).ready(function() {
     $('.service-item').on('click',function(e) {
         openModal(e);
     });
-
+    //close modal
     modal.on('click', function(e) {
-        if(!e.target.closest('img') && !e.target.closest('.contact-me') || !e.target.closest('form')) {
+        if(!e.target.closest('img') && !e.target.closest('.contact-me')) {
             modal.removeClass('active');
             modalContent.removeClass('active');
         }

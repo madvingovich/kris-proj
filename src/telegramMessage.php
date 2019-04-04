@@ -21,7 +21,7 @@ if(!empty($mail) && preg_match('/.+@.+\..+/si', $mail)) $mess .= "\nПочта: 
 if(!empty($text)) $mess .= "\nТекст: $text";
 
 
-$tbot = file_get_contents("https://api.telegram.org/bot".$token."/sendMessage?chat_id=".$chatid."&text=".urlencode($mess)); //Если нашли ошибку отправляем  сообщение в телеграмм
+$tbot = file_get_contents("https://api.telegram.org/bot".$token."/sendMessage?chat_id=".$chatid."&text=".urlencode($mess));
 
 echo 'Письмо отправлено, в ближайшее время я с вами свяжусь:)';
 
